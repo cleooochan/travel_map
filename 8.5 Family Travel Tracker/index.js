@@ -31,7 +31,6 @@ async function checkVisisted() {
     countries.push(country.country_code);
   });
   return countries;
-  //console.log
 }
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
@@ -39,6 +38,7 @@ app.get("/", async (req, res) => {
     countries: countries,
     total: countries.length,
     users: users,
+    color: "teal",
   });
 });
 app.post("/add", async (req, res) => {
