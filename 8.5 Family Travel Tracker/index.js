@@ -136,7 +136,8 @@ app.post("/new", async (req, res) => {
       "INSERT INTO users (name, color) VALUES ($1, $2) RETURNING id",
       [name, color]
     );
-
+    console.log(result);
+    currentUserId = result.rows[0].id;
     res.redirect("/");
   } catch (error) {
     console.log("Error processing request:", error);
